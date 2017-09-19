@@ -4,7 +4,9 @@ MAINTAINER Darius Kristapavicius <darius@darneta.lt>
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update -y \
- && apt-get install -y --no-install-recommends net-tools wget python sudo bzip2 supervisor less locales ca-certificates \
+ && apt-get install -y --no-install-recommends \
+    wget python sudo bzip2 supervisor locales ca-certificates \
+    net-tools less \
  && rm -rf /var/lib/apt/lists/*
 
 RUN useradd -ms /bin/bash rhodecode
