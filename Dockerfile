@@ -4,12 +4,12 @@ MAINTAINER Darius Kristapavicius <darius@darneta.lt>
 
 RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-    wget python sudo bzip2 supervisor locales ca-certificates \
+    wget sudo bzip2 supervisor locales ca-certificates \
     net-tools less \
  && rm -rf /var/lib/apt/lists/*
 
 RUN useradd -ms /bin/bash rhodecode
-RUN sudo adduser rhodecode sudo
+RUN adduser rhodecode sudo
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 RUN locale-gen en_US.UTF-8
